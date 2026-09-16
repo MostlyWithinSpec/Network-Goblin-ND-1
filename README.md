@@ -98,6 +98,7 @@ required to try it. A custom board is in development.
 | **3.5" SPI touchscreen** | ST7796 driver, FT6336U capacitive touch, 320×480. |
 | **Jumper wires / breadboard** | For the RMII + display wiring. |
 | **(optional) LiPo + charger** | For untethered use. |
+| ** If using the same Elegoo ESP, You will need to solder a wire to GPIO0 for PHY Retclk. |
 
 > 🔧 The chip swap is the one tricky bit — it's a QFN reflow. Doable with hot
 > air + flux + patience (this project's first swap was done one-handed in a
