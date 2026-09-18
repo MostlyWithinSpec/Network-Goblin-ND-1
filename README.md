@@ -82,12 +82,12 @@ change.
 
 ### Planned / roadmap
 - 🔜 **Custom destination** for ping / traceroute (on-screen entry).
-- 🔜 **Settings persistence** — remember theme, units, calibration.
+- ✅ **Finsihed Coming in release 1.0.3** **Settings persistence** — remember theme, units, calibration.
 - 🔜 **Linked-length calibration** baked in.
-- 🔜 **Boot splash + logo, GUI polish, sound.**
+- ✅ **Finsihed Coming in release 1.0.3** **Boot splash + logo, GUI polish, sound.**
 - 🔜 **Battery percentage** (custom PCB).
 - 🔜 **Screenshot / result logging to SD.**
-- 💭 **Goblin-mode easter eggs** (non-negotiable 🧌).
+- ✅ **Finsihed Coming in release 1.0.3** **Goblin-mode easter eggs** (non-negotiable 🧌).
 
 ### The bigger idea — "ND-2"
 A future, more powerful sibling based on a Linux SBC (e.g. an Orange Pi with
