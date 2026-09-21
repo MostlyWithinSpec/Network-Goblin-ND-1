@@ -13,6 +13,8 @@
 #include "ng_display.h"
 #include "ng_ui.h"
 #include "ng_lldp.h" 
+#include "ng_goblin.h"
+#include "Preferences.h"
 
 static void banner(){
   Serial.println();
@@ -67,15 +69,47 @@ else if(!strcmp(buf,"netcheck")){ ngLldpEnsureStopped();
 }
 
 void setup(){
-  Serial.begin(115200); delay(300); banner();
-  Serial.println("[SYS] display..."); ngDisplayBegin();
-  Serial.println("[SYS] ui...");      ngUiInit();
-  Serial.println("[SYS] ethernet..."); ngEthBegin();
-  ngLldpBegin(); 
+  Serial.begin(115200);
+  delay(300);
+
+  banner();
+
+  ngGoblinInit();
+
+  Serial.println("[SYS] display...");
+  ngDisplayBegin();
+
+  Serial.println("[SYS] ui...");
+  ngUiInit();
+
+  ngUiShowSplash();
+  ngUiSplashStatus("Initializing Ethernet...");
+
+  Serial.println("[SYS] ethernet...");
+  ngEthBegin();
+
+  ngLldpBegin();
+
   uint32_t id;
-  if(ngPhyId(&id)) Serial.printf("[PHY] ID=0x%08X  swap OK\n",id);
-  else             Serial.println("[PHY] ID read FAILED - check MDIO/clock/addr");
-  Serial.println("[SYS] load home screen"); ngUiLoadHome();
+
+  if(ngPhyId(&id)){
+    Serial.printf("[PHY] ID=0x%08X swap OK\n",id);
+
+    ngUiSplashStatus(
+      "PHY........OK\n"
+      "Display....OK\n"
+      "Network....OK"
+    );
+  }
+
+  delay(500);
+
+  ngUiSplashAwake();
+
+  delay(1000);
+
+  ngUiLoadHome();
+
   Serial.println("[SYS] up. type 'help'. Goblin awake.");
 }
 

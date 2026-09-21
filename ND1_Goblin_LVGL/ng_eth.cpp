@@ -27,10 +27,21 @@ static void onEth(WiFiEvent_t e) {
 
 void ngEthBegin() {
   WiFi.onEvent(onEth);
-  bool ok = ETH.begin(NG_ETH_PHY_TYPE, NG_ETH_PHY_ADDR, NG_ETH_MDC, NG_ETH_MDIO,
-                      NG_ETH_PHY_POWER, NG_ETH_CLK_MODE);
-  delay(300);
-  Serial.printf("[ETH] begin()=%s handle=%p\n", ok?"OK":"FAILED", ETH.handle());
+  bool ok = false;
+  for (int attempt = 1; attempt <= 5; attempt++) {
+    ok = ETH.begin(NG_ETH_PHY_TYPE, NG_ETH_PHY_ADDR, NG_ETH_MDC, NG_ETH_MDIO,
+                   NG_ETH_PHY_POWER, NG_ETH_CLK_MODE);
+    delay(300);
+    uint32_t id = 0;
+    if (ok && ngPhyId(&id)) {
+      Serial.printf("[ETH] up on attempt %d, PHY=0x%08lX\n", attempt, (unsigned long)id);
+      return;
+    }
+    Serial.printf("[ETH] attempt %d failed, retrying...\n", attempt);
+    ETH.end();
+    delay(200);
+  }
+  Serial.println("[ETH] PHY init FAILED after retries");
 }
 
 bool ngEthLink()  { return s_link; }

@@ -13,3 +13,11 @@ void ngUiOnCable();
 void ngUiOnNetwork();
 void ngUiOnAutotest();
 void ngUiService();
+
+void ngUiShowSplash();
+void ngUiSplashStatus(const char* text);
+void ngUiSplashAwake();
+bool ngUiExtremeGoblin();
+bool ngUiLogsEnabled();
+float ngUiTdrCalibration();
+bool ngUiUsesMeters();
