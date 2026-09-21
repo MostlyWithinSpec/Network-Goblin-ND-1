@@ -60,6 +60,8 @@ change.
 - ✅ **Serial console** — every function is also available over USB serial
   (`id`, `link`, `cable`, `tdr`, `pairs`, `ping <host>`, `trace <host>`,
   `switch`, `flash`).
+- ✅ **Settings persistence** — remember theme, units, calibration.
+
 
 ### Known limitations / rough edges
 - ⚠️ **Linked-cable length needs tuning.** When plugged into a live switch,
@@ -73,8 +75,6 @@ change.
 - ⚠️ **Port flash is switch-dependent** — the link *does* cycle, but some
   switches (many UniFi/UBNT) don't visibly blink the port LED on link loss.
   Cisco and most managed switches will.
-- ⚠️ **Dark mode doesn't persist** across reboots (no settings saved yet).
-- ⚠️ **Tools screen is a placeholder.**
 - ⚠️ **Traceroute** doesn't yet display intermediate hop addresses reliably.
 - ⚠️ **Pairs 4-5 and 7-8** can't be tested at 10/100 (those pairs aren't
   driven). Shown honestly as "n/a." Full 4-pair wiremap needs a gigabit PHY.
@@ -82,13 +82,10 @@ change.
 
 ### Planned / roadmap
 - 🔜 **Custom destination** for ping / traceroute (on-screen entry).
-- ✅ **Finished Coming in release 1.0.3** **Settings persistence** — remember theme, units, calibration.
 - 🔜 **Linked-length calibration** baked in.
-- ✅ **Finished Coming in release 1.0.3** **Boot splash + logo, GUI polish, sound.**
 - 🔜 **Battery percentage** (custom PCB).
 - 🔜 **Screenshot / result logging to SD.**
-- ✅ **Finished Coming in release 1.0.3** **Goblin-mode easter eggs** (non-negotiable 🧌).
-- ✅ **Finished Coming in release 1.0.3** **Added retry loop for PHY init**
+
 
 ### The bigger idea — "ND-2"
 A future, more powerful sibling based on a Linux SBC (e.g. an Orange Pi with
