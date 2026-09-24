@@ -98,8 +98,10 @@ Linux-powered multitool. (Concept stage.)
 
 ## 🛠️ Hardware
 
+🎉**Ordered Rev-c boards on 9/24/2026** Don't buy the PCB yet. I will update if the board is stable and working.
+
 This runs today on an **off-the-shelf dev-kit build** — no custom PCB
-required to try it. A custom board is in development.
+required to try it. A custom board is in testing.
 
 ### Dev-kit build (replicate it now)
 | Part | Notes |
